@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-10-17",
+  "scope": "STATIC_PUBLIC_FREE_ONLY",
+  "routes": [
+    "/",
+    "/pricing",
+    "/free-calculator",
+    "/quote-kit",
+    "/consultants",
+    "/consultants/business",
+    "/consultants/it",
+    "/consultants/legal-compliance",
+    "/how-it-works",
+    "/resources",
+    "/resources/guides",
+    "/resources/templates",
+    "/about",
+    "/support",
+    "/faq",
+    "/privacy",
+    "/terms",
+    "/refund-policy",
+    "/license",
+    "/security",
+    "/status",
+    "/resources/guides/pricing",
+    "/resources/guides/project-profitability",
+    "/resources/guides/planned-versus-actual",
+    "/resources/templates/engagement-checklist",
+    "/resources/templates/issue-tree",
+    "/resources/templates/it-handover",
+    "/resources/templates/document-request",
+    "/resources/templates/client-onboarding",
+    "/resources/templates/engagement-review"
+  ],
+  "status": "LOCAL_BUILD_IN_PROGRESS",
+  "quoteKit": "BLOCKED",
+  "platform": "NOT_FOR_SALE",
+  "liveCheckout": false,
+  "functions": false,
+  "dependenciesAdded": 0,
+  "commit": null,
+  "deployment": null,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "4328ed37aeb410ca53f6e8465ac0418811e7b9fb9a3f5c0628e4d243574725fb"
+    },
+    {
+      "path": "pricing/index.html",
+      "sha256": "2b9fb3458ea253e85d8bed64832bae2024f7bc43b1607866c63845f286375ce3"
+    },
+    {
+      "path": "free-calculator/index.html",
+      "sha256": "a8585d9da7f2d3b722608d483e2587213a9c488cc7c739dfa8781b7759b9faec"
+    },
+    {
+      "path": "quote-kit/index.html",
+      "sha256": "8c30047267517bf8582fd8d4b6983342aee78957b39757539fb9fe213dba091f"
+    },
+    {
+      "path": "consultants/index.html",
+      "sha256": "8a93c34a181ad36a3a5a06610627fd57ee1b2f445701933b980a7fc828d329c6"
+    },
+    {
+      "path": "consultants/business/index.html",
+      "sha256": "81dd8a255695f67036b20f5bb917f2e08e904cc289db06474a6f448dbd0399cd"
+    },
+    {
+      "path": "consultants/it/index.html",
+      "sha256": "dbc0badf0273c2c1fb10bad8c8c71a9b6af94480621d18853d53db047bc9ff3d"
+    },
+    {
+      "path": "consultants/legal-compliance/index.html",
+      "sha256": "8d17425c73f39de843fbc0912a6108fedf400918f606fdcc9292d2b844c45dff"
+    },
+    {
+      "path": "how-it-works/index.html",
+      "sha256": "08abd4203c00cf9ee01b41746e7a09f7ea2e1fe09bcd1e9f102b3a975a0d2c2a"
+    },
+    {
+      "path": "resources/index.html",
+      "sha256": "1e61669e2fa182ba9c8ea8e33f94ca09e0e8f9b2e82fafbd851f3a6dd8513b36"
+    },
+    {
+      "path": "resources/guides/index.html",
+      "sha256": "dc64b5d22073cea86ecf07e598fd2f0315e087f242111ff6e9c8637e1ecfded3"
+    },
+    {
+      "path": "resources/templates/index.html",
+      "sha256": "eede308e2fc3625c91ef67c2bd5301703aef3c2f98c775976b40a096bc7c958e"
+    },
+    {
+      "path": "about/index.html",
+      "sha256": "690440990d98443b3365cab864d38272701a007956ac3ff25af01b9b7db27e47"
+    },
+    {
+      "path": "support/index.html",
+      "sha256": "9cd1d76ff1880e480ddef5aef9e6cfd959e0485acc843c36240ad75ec655ad91"
+    },
+    {
+      "path": "faq/index.html",
+      "sha256": "3937e4e1811c6e110683c66381740e7ed47c7e62bd987453465be3a10e1d9e4b"
+    },
+    {
+      "path": "privacy/index.html",
+      "sha256": "5acfc596e5d95f5ad4176de029d85d4959568e327404fe9c9c676d47e7d5d884"
+    },
+    {
+      "path": "terms/index.html",
+      "sha256": "ac4f5ed2b9a979acb80f6e52897fa7bf0e5215d22b73a1d0a885b740f286dd0d"
+    },
+    {
+      "path": "refund-policy/index.html",
+      "sha256": "49b89baa1215f7b4a8c7fb7682745d33a7d29cf5d888f8b44b56be1ef46b8fef"
+    },
+    {
+      "path": "license/index.html",
+      "sha256": "8976d2a887607850c9ec1312e03c54429f57708a6553e32455e30bd6b878b17c"
+    },
+    {
+      "path": "security/index.html",
+      "sha256": "b1bfa208a38ef9c02cf5cf483b56b3ff1a629554e1593e4b1776946b235e0474"
+    },
+    {
+      "path": "status/index.html",
+      "sha256": "e3bab52bbc4c6531d12d646e6cd8f6784098df616c76ee7599bace0506972367"
+    },
+    {
+      "path": "resources/guides/pricing/index.html",
+      "sha256": "e3e5157b04f6b93b52b3cfffb206e03c7c936fc5459c5739e6f129e045a1561e"
+    },
+    {
+      "path": "resources/guides/project-profitability/index.html",
+      "sha256": "7921589b9c326919a8a380943e1d8b20a224520af309e96c80c019281fdadd98"
+    },
+    {
+      "path": "resources/guides/planned-versus-actual/index.html",
+      "sha256": "5c2953dcca4db9606c787ed657b86970e9a603313b41f69645d8b0658e6771b5"
+    },
+    {
+      "path": "resources/templates/engagement-checklist/index.html",
+      "sha256": "e1c167490774795a6acc0d088eb6d5d43fde97614cefc54162bd06b245186aac"
+    },
+    {
+      "path": "resources/templates/issue-tree/index.html",
+      "sha256": "40cb7f94386f40d5f5edea843d12358a3e2e79836eafed2890da04c812cc0e4f"
+    },
+    {
+      "path": "resources/templates/it-handover/index.html",
+      "sha256": "5980cf52dc807faf3ad9148fec4a989f39163340d47d983bfaf14a1f72c5012a"
+    },
+    {
+      "path": "resources/templates/document-request/index.html",
+      "sha256": "519022d6a430979b26391a640428b4443d307fccee2f0b4224acf33722d076e8"
+    },
+    {
+      "path": "resources/templates/client-onboarding/index.html",
+      "sha256": "39b5b9b2f36a90274f3a67cf8026b2c5982edefe622f3f81e19566210038ba62"
+    },
+    {
+      "path": "resources/templates/engagement-review/index.html",
+      "sha256": "91c55955dc36d75768db578af78783b197c26bef6be90f98fbfac3b3e343e682"
+    },
+    {
+      "path": "404.html",
+      "sha256": "9aed2fd117b7adcf0d3c11467be5837705fba97db35e603c0bddcd2292c47692"
+    },
+    {
+      "path": "static/style.css",
+      "sha256": "baa680d344f600809e2de3672e9f2a8866f2a898421c404a44976561a8dbd784"
+    },
+    {
+      "path": "static/navigation.js",
+      "sha256": "95128a3f8eaeedbc029044ef29d162c38c35bbb29a25179a95aaadcad64e4374"
+    },
+    {
+      "path": "static/quote-core.js",
+      "sha256": "6e1a20b9e34989a15632982d332f9f9875a617bab9d182b6f866b24e2d61ec2e"
+    },
+    {
+      "path": "static/app.js",
+      "sha256": "c6dfb49fbd8d9c570a1c6086d799911949b2784cdd6d71b583e6dcf0ef0861ea"
+    },
+    {
+      "path": "sitemap.xml",
+      "sha256": "05a5e87ccca1ec3aeca61e8c1f527fc18308c3727ee2e3736a763de9514743b9"
+    },
+    {
+      "path": "robots.txt",
+      "sha256": "cfd7c9cb92a4319fcbe89746f67c763f2ca2f57842524c7d6a83d99d14c784fe"
+    },
+    {
+      "path": "_headers",
+      "sha256": "f1f9f77c85a17a9df46a7fcd3826ba949b25820aa26cdb9f0d2a409c7248df9d"
+    },
+    {
+      "path": "_redirects",
+      "sha256": "90202a209868418ecc569410be1db095a149645e1f01ec45c6b81447064e097d"
+    },
+    {
+      "path": "Quotellum-Quick-Quote.xlsx",
+      "sha256": "b7ed84af43266452d33e94e8b5aaed5e2e6bcf8508cf982ada369f7388bc54ec"
+    }
+  ]
+}

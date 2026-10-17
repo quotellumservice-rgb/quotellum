@@ -1,0 +1,15 @@
+# Claim-to-capability matrix
+
+| Claim | Capability / evidence boundary |
+|---|---|
+| Free USD quote | Existing deterministic browser arithmetic; focused regression tests |
+| No input upload or local project save | Controller has no network, cookie or browser-storage calls; hosting requests still occur |
+| Free Excel sample | Existing reviewed workbook SHA-256, checked during build |
+| Educational resources | Nine static pages with substantive prompts and examples |
+| Quote Kit $15 once | Intended price only; BLOCKED; no sale, fulfillment or recovery offered |
+| 30 days support / 12 calendar months recovery | Intended paid terms pending certification, not current services |
+| Consulting workflow | Planned; NOT_FOR_SALE; no hosted customer application |
+| Security / privacy | Static-build controls described; no certification, encrypted-workspace or zero-host-logging claim |
+| Status page | Manually maintained availability snapshot; no live uptime assurance |
+
+Removed misleading availability implications, sign-in affordances, early-access forms and unsupported customer proof.

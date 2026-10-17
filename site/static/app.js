@@ -28,6 +28,14 @@
       element('quote-error').textContent = error.message;
     }
   }
+  function invalidate(message, placeholder) {
+    for (const id of ['price', 'cost', 'profit', 'margin']) element(id).textContent = placeholder;
+    element('comparison').replaceChildren();
+    element('quote-error').textContent = message;
+  }
+  element('quote-form').addEventListener('input', () => invalidate('Inputs changed. Select Calculate quote to update the result.', '—'));
+  element('quote-form').addEventListener('invalid', () => invalidate('Check the highlighted inputs and their limits before calculating.', 'Unavailable'), true);
   element('quote-form').addEventListener('submit', event => { event.preventDefault(); calculate(); });
+  element('quote-form').addEventListener('reset', () => { setTimeout(calculate, 0); });
   calculate();
 })();
