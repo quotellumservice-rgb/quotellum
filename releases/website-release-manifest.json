@@ -45,7 +45,7 @@
   "files": [
     {
       "path": "index.html",
-      "sha256": "4328ed37aeb410ca53f6e8465ac0418811e7b9fb9a3f5c0628e4d243574725fb"
+      "sha256": "e5324dd07ec9c3871da7837e56c2cc392820186963b69b9e765ce92427cb6c48"
     },
     {
       "path": "pricing/index.html",
@@ -53,7 +53,7 @@
     },
     {
       "path": "free-calculator/index.html",
-      "sha256": "a8585d9da7f2d3b722608d483e2587213a9c488cc7c739dfa8781b7759b9faec"
+      "sha256": "30ca32bacf5af41a012e4c75796a2490df4399a1dd3a502b344cf0bff1fa4159"
     },
     {
       "path": "quote-kit/index.html",
@@ -101,7 +101,7 @@
     },
     {
       "path": "faq/index.html",
-      "sha256": "3937e4e1811c6e110683c66381740e7ed47c7e62bd987453465be3a10e1d9e4b"
+      "sha256": "bd3f4329b8adcc1054a5800a27d78f6d75c70118857e3e83cb213d37ecbd49e6"
     },
     {
       "path": "privacy/index.html",
@@ -169,11 +169,11 @@
     },
     {
       "path": "static/style.css",
-      "sha256": "baa680d344f600809e2de3672e9f2a8866f2a898421c404a44976561a8dbd784"
+      "sha256": "f5ed73925d0dbe21876d6f430fb9ea9ada2335bcb2eb1ac2a78e9a78fe17360d"
     },
     {
       "path": "static/navigation.js",
-      "sha256": "95128a3f8eaeedbc029044ef29d162c38c35bbb29a25179a95aaadcad64e4374"
+      "sha256": "3d8767b35c152b42301991543e5b196f03e80ac57339e5df2e5a618442e92a7f"
     },
     {
       "path": "static/quote-core.js",
