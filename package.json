@@ -1,0 +1,9 @@
+{
+  "name": "quotellum-public",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public free Quotellum calculator and free Excel sample only",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test tests/public.test.mjs", "build": "node scripts/verify-public.mjs" }
+}
+
