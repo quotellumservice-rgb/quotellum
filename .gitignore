@@ -218,3 +218,30 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Quotellum public-repository exclusions
+node_modules/
+.env
+.env.*
+!.env.example
+.secrets/
+.local/
+*.pem
+*.key
+*.p12
+*.pfx
+*.zip
+*.sql
+*.sqlite*
+*.db
+backups/
+data/
+products/
+ops/
+supabase/
+netlify/functions/
+customer*/
+private*/
+internal*/
+.DS_Store
+Thumbs.db

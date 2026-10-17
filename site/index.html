@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free quote calculator for small service businesses. Estimate a price from materials, labor, overhead and your target margin.">
+<title>Quotellum — Free Quick Quote</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/quote-core.js" defer></script>
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<header><a class="brand" href="/">Quotellum<span class="brand-dot">.</span></a><nav aria-label="Main"><a href="#calculator">Quick Quote</a><a href="#package">Upcoming Quote Kit</a></nav></header>
+<main>
+<section class="intro"><h1>Know what your quote leaves you.</h1><p>Put labor, materials and overhead into a clear price. Compare your options before you commit to a job.</p><a class="button secondary" href="/sample">Download the free Excel sample</a></section>
+<section id="calculator" class="workspace">
+<div><h2>Free Quick Quote</h2><p class="muted">USD · Prices before tax. Example inputs are fictional.</p>
+<form id="quote-form"><div class="fields">
+<label>Materials ($)<input name="materials" type="number" min="0" step="0.01" value="100" required></label>
+<label>Hours<input name="hours" type="number" min="0" step="0.0001" value="4" required></label>
+<label>Hourly cost ($)<input name="hourly_rate" type="number" min="0" step="0.01" value="25" required></label>
+<label>Overhead ($)<input name="overhead" type="number" min="0" step="0.01" value="20" required></label>
+<label>Other costs ($)<input name="other_cost" type="number" min="0" step="0.01" value="0" required></label>
+<label>Target margin (%)<input name="target_margin" type="number" min="0" max="99.99" step="0.01" value="30" required></label>
+</div><button type="submit">Calculate quote</button></form>
+<p class="muted">Quick Quote excludes processing fees, refunds, acquisition and support costs. Add those costs before choosing a final customer price.</p></div>
+<aside class="result" aria-live="polite"><p>Suggested quote before tax</p><strong id="price">—</strong><dl><dt>Delivery cost</dt><dd id="cost">—</dd><dt>Contribution before fees</dt><dd id="profit">—</dd><dt>Margin before fees</dt><dd id="margin">—</dd></dl><p id="quote-error" class="error" role="status"></p><h3>Compare prices</h3><div class="table-scroll" role="region" aria-label="Price comparison"><table><thead><tr><th>Price</th><th>Contribution before fees</th></tr></thead><tbody id="comparison"></tbody></table></div></aside>
+</section>
+<section id="package" class="offer"><div><h2>Upcoming: the $15 Quote Kit</h2><p>The planned one-time Quote Kit will include additional pricing tools. Paid sales are not open.</p><p><strong>Checkout is closed.</strong> No payment is accepted on this site.</p><button type="button" disabled>Quote Kit — $15 · Coming soon</button></div><div class="package-detail"><h3>Try the free sample today</h3><p>Download the free Quick Quote Excel workbook or use the calculator above. Microsoft Excel is not included.</p><p>Your calculator inputs stay on this page. This site does not save projects, create accounts or send your calculator inputs to a server.</p></div></section>
+<footer><p>Quotellum · Arizona, USA · Quote tools for small service businesses</p><p>Questions? <a href="mailto:quotellum.service@gmail.com">quotellum.service@gmail.com</a></p><p>These estimates support your own decisions. They do not guarantee profit or replace tax or accounting advice. Hosting providers receive ordinary web requests when you visit or download a file.</p></footer>
+</main>
+</body></html>
