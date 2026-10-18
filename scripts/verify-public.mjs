@@ -6,16 +6,16 @@ import { routes,baseUrl } from './site-content.mjs';
 export const publicFiles = Object.freeze([
   ...routes.map(path=>path==='/'?'index.html':path.slice(1)+'/index.html'),
   '404.html', 'static/app.js', 'static/quote-core.js', 'static/style.css', 'static/navigation.js',
-  'Quotellum-Quick-Quote.xlsx', '_redirects', '_headers', 'robots.txt', 'sitemap.xml',
+  'Clariro-Calculator.xlsx', '_redirects', '_headers', 'robots.txt', 'sitemap.xml', 'brand/clariro-logo.svg', 'brand/clariro-mark.svg', 'brand/clariro-favicon.svg', 'brand/clariro-og.png', 'brand/clariro-email-logo.png',
 ]);
 export const repositoryFiles = Object.freeze([
   ...publicFiles.map(file => 'site/' + file), '.github/CODEOWNERS', '.github/workflows/public-ci.yml',
   '.gitignore', 'README.md', 'netlify.toml', 'package.json', 'scripts/verify-public.mjs', 'scripts/site-content.mjs', 'scripts/generate-site.mjs', 'tests/public.test.mjs',
   'docs/WEBSITE-BUILD-PLAN.md', 'docs/PAGE-CONTENT-INVENTORY.md', 'docs/CLAIM-TO-CAPABILITY-MATRIX.md',
   'docs/USER-JOURNEY-TESTS.md', 'docs/ADMIN-JOURNEY-TESTS.md', 'docs/WEBSITE-RELEASE-REPORT.md',
-  'releases/website-release-manifest.json',
+  'releases/website-release-manifest.json', 'docs/BRAND-COMPATIBILITY.md',
 ]);
-const freeSampleSha = 'b7ed84af43266452d33e94e8b5aaed5e2e6bcf8508cf982ada369f7388bc54ec';
+const freeSampleSha = '4ad53794e96a868869df8cf4933285435d62cb96326d03ca3449972084294f4e';
 function filesBelow(root, prefix = '') {
   const files = [];
   for (const name of readdirSync(resolve(root, prefix))) {
@@ -33,7 +33,7 @@ export function verifyPublic(root) {
   const actual = filesBelow(root).sort();
   if (JSON.stringify(actual) !== JSON.stringify([...repositoryFiles].sort())) throw Error('Public repository file allowlist mismatch');
   const site = resolve(root, 'site');
-  for (const file of publicFiles.filter(file => !file.endsWith('.xlsx'))) {
+  for (const file of publicFiles.filter(file => !file.endsWith('.xlsx') && !file.endsWith('.png'))) {
     const text = readFileSync(resolve(site, file), 'utf8');
     if (/\b(?:sk|rk)_(?:live|test)_[a-zA-Z0-9]{10,}|whsec_[a-zA-Z0-9]{10,}|gh[pousr]_[a-zA-Z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(text)) throw Error('Credential-shaped text found in public asset');
     if (/\/api\/|\/\.netlify\/functions\/|\/owner\b|\/recover\b|\/purchase\b|Quotellum-(?:Customer-Package|Offline-Quote-Kit|Quote-Profit)|service_role|supabase|stripe|resend/i.test(text)) throw Error('Private product, account or commerce reference found in public asset');
@@ -55,9 +55,10 @@ export function verifyPublic(root) {
     const forms=(html.match(/<form\b/g)||[]).length;
     if(forms!==(file==='free-calculator/index.html'?1:0))throw Error('Unexpected public form');
   }
+  for (const file of publicFiles.filter(f=>f.endsWith('.html')||f.endsWith('.svg')||f.endsWith('.xml')||f==='robots.txt')) { const text=readFileSync(resolve(site,file),'utf8').replaceAll('mailto:quotellum.service@gmail.com',''); if (/quotellum/i.test(text)) throw Error('Legacy active branding in '+file); }
   const offer=readFileSync(resolve(site,'quote-kit/index.html'),'utf8');
-  if(!/<button\s+type="button"\s+disabled>Quote Kit/.test(offer))throw Error('Purchase control must be disabled');
-  const sample = readFileSync(resolve(site, 'Quotellum-Quick-Quote.xlsx'));
+  if(!/<button\s+type="button"\s+disabled>Clariro Quote Kit/.test(offer))throw Error('Purchase control must be disabled');
+  const sample = readFileSync(resolve(site, 'Clariro-Calculator.xlsx'));
   if (createHash('sha256').update(sample).digest('hex') !== freeSampleSha) throw Error('Only the reviewed free sample may be published');
   const config = readFileSync(resolve(root, 'netlify.toml'), 'utf8');
   if (!/publish\s*=\s*"site"/.test(config) || /functions|plugins|command\s*=\s*"(?!npm run build")/i.test(config)) throw Error('Static-only deployment configuration required');

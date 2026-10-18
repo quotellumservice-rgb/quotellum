@@ -47,7 +47,7 @@ test('local HTML asset links and anchors resolve; sample route maps to the revie
     assert.match(html,/Quote Kit: not available for purchase/);assert.match(html,/Consulting platform: in development/);
     assert.equal((html.match(/<form\b/g) || []).length, route==='/free-calculator'?1:0);
   }
-  assert.match(readFileSync(resolve(root, 'site/_redirects'), 'utf8'), /^\uFEFF?\/sample \/Quotellum-Quick-Quote\.xlsx 200\s*$/);
+  assert.match(readFileSync(resolve(root, 'site/_redirects'), 'utf8'), /^\/sample \/Clariro-Calculator\.xlsx 200\n\/Quotellum-Quick-Quote\.xlsx \/Clariro-Calculator\.xlsx 301\s*$/);
 });
 
 test('search inventory contains real public routes, with no application or commerce facades',()=>{
@@ -69,7 +69,7 @@ test('nine resource pages contain substantive sections, audiences, review dates 
 
 test('commerce copy stays visibly unavailable and does not invent account or waitlist flows',()=>{
   const html=readFileSync(resolve(root,'site/quote-kit/index.html'),'utf8');
-  assert.match(html,/<button type="button" disabled>Quote Kit — \$15/);
+  assert.match(html,/<button type="button" disabled>Clariro Quote Kit — \$15/);
   assert.match(html,/30 days/);assert.match(html,/12 calendar months/);assert.match(html,/not a certified delivery manifest/);
   for(const path of publicFiles.filter(file=>file.endsWith('.html'))){const text=readFileSync(resolve(root,'site',path),'utf8');assert.doesNotMatch(text,/<(?:a|form)[^>]+(?:href|action)="\/(?:app|admin|checkout|recover|signin|signup)/);}
 });
@@ -102,3 +102,9 @@ test('CI checks are read-only and cannot deploy this draft', () => {
   assert.doesNotMatch(workflow, /secrets\.|deploy|write|pull_request_target|workflow_run/);
   for (const [, ref] of workflow.matchAll(/uses:\s*([^\s#]+)/g)) assert.match(ref, /@[a-f0-9]{40}$/);
 });
+
+ test('current presentation uses Clariro while keeping the legacy mailbox and math alias',()=>{
+ for(const route of routes){const text=readFileSync(resolve(root,'site',route==='/'?'index.html':route.slice(1)+'/index.html'),'utf8');assert.match(text,/<title>[^<]*Clariro Systems<\/title>/);assert.doesNotMatch(text.replaceAll('quotellum.service@gmail.com',''),/quotellum/i);assert.ok(text.includes(baseUrl+'/brand/clariro-og.png'));assert.doesNotMatch(text,/Private preview|LOCAL_WORKING_BRAND_ONLY|noindex,nofollow/);}
+ assert.match(readFileSync(resolve(root,'site/quote-kit/index.html'),'utf8'),/<h1>Clariro Quote Kit/);
+ assert.equal(baseUrl,'https://clariro-systems.netlify.app');
+ });
