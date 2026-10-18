@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "scope": "FREE_SINGLE_JOB_STARTER",
+  "createdOn": "2026-10-18",
+  "paidOffer": "$15 proposed; NOT FOR SALE",
+  "files": {
+    "Clariro-Starter-Pack.xlsx": {
+      "sha256": "4bd34ad50c5d14ec994e8909cd147b7d20f3f1ca5288f2125506701087c63a64",
+      "bytes": 15841
+    },
+    "Clariro-Offline-Starter.html": {
+      "sha256": "75f0dd9d426eb69e9bd2b302c883adaee46457560376ea10ad41f4417c1509d7",
+      "bytes": 16770
+    },
+    "Clariro-Quick-Start.html": {
+      "sha256": "c3bc53edc1ec6af956e1b194b0c753ae182fb4f9ff4511c1df3c5e8baeb30671",
+      "bytes": 7665
+    },
+    "Clariro-Quick-Start.txt": {
+      "sha256": "537083585d38237e4a1c9d21a6f214cb662f76fb3c0ffcdccdd17f58e838688a",
+      "bytes": 6136
+    },
+    "Clariro-Quick-Start.pdf": {
+      "sha256": "bbfe79104d6a366538f520f7917e01d2efded21f3140536847520f063e2f6e35",
+      "bytes": 73299
+    },
+    "Clariro-Job-Inputs.csv": {
+      "sha256": "a8ed6289fbd783158ddf96f19a66244cdc825df630737d1a557bd531487fcf3a",
+      "bytes": 520
+    },
+    "README.txt": {
+      "sha256": "260e28076877269a30d00a550e76573de4dfaae83695a7286048db59e6662afe",
+      "bytes": 722
+    },
+    "Compatibility-Sources.txt": {
+      "sha256": "f2a869b0244584042c73fad3571a5f038d1d82eeee36a2e70ec2e412b8e790a2",
+      "bytes": 999
+    }
+  },
+  "compatibility": "Native Excel representative checks; other spreadsheet applications have official import instructions but are not execution-certified.",
+  "backups": "Offline JSON is tool-specific; not interchangeable with online or paid backups."
+}

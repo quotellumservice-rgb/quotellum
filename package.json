@@ -1,13 +1,13 @@
 {
   "name": "clariro-public",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
-  "description": "Static Quotellum public pages, educational resources and free calculator; checkout disabled",
+  "description": "Clariro Systems free calculator, one-job Starter Pack and educational resources; checkout disabled",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "node scripts/generate-site.mjs && node --test tests/public.test.mjs",
+    "test": "node scripts/generate-site.mjs && node --test tests/*.test.mjs",
     "build": "node scripts/generate-site.mjs && node scripts/verify-public.mjs"
   }
 }

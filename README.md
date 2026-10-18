@@ -1,6 +1,6 @@
 # Clariro Systems public free website
 
-This repository contains 30 static public routes, nine educational resources, the Clariro Calculator and the reviewed Clariro Calculator Excel sample. Calculator inputs are processed locally in the browser without accounts, project storage or data submission.
+This repository contains 31 static public routes, nine educational resources, the Clariro Calculator and the reviewed Clariro Calculator Excel sample. Calculator inputs are processed locally in the browser without accounts or data submission, with explicit optional one-record browser storage.
 
 The $15 Quote Kit is upcoming and checkout is disabled. Paid workbooks, paid offline tools, customer packages, financial operations and internal infrastructure are intentionally excluded. This repository does not provide a hosted business management service or payment fulfillment.
 
@@ -27,3 +27,6 @@ Support: quotellum.service@gmail.com
 
 
 Current website: https://clariro-systems.netlify.app. Legacy repository owner/name and contact mailbox are compatibility endpoints; see docs/BRAND-COMPATIBILITY.md.
+
+
+Free Calculator 1.1: guided one-job estimate, optional payment fees, three editable scenarios, one explicitly saved local record and strict JSON backup/restore. Starter Pack 1.0 includes a four-sheet workbook, offline calculator, five-page PDF guide, printable/text instructions and CSV inputs. Native Excel and Chromium checks are distinct from unverified Google Sheets, Numbers and Calc imports. Paid tracking and actuals remain a separate unreleased offer.

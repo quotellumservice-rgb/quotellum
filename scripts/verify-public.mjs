@@ -1,16 +1,17 @@
+import { starterFiles,approvedStarterSha } from './starter-files.mjs';
 import { readdirSync, readFileSync, lstatSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { routes,baseUrl } from './site-content.mjs';
-export const publicFiles = Object.freeze([
+export const publicFiles = Object.freeze([...starterFiles,
   ...routes.map(path=>path==='/'?'index.html':path.slice(1)+'/index.html'),
-  '404.html', 'static/app.js', 'static/quote-core.js', 'static/style.css', 'static/navigation.js',
+  '404.html', 'static/app.js', 'static/estimate-core.js', 'static/calculator-app.js', 'static/quote-core.js', 'static/style.css', 'static/navigation.js',
   'Clariro-Calculator.xlsx', '_redirects', '_headers', 'robots.txt', 'sitemap.xml', 'brand/clariro-logo.svg', 'brand/clariro-mark.svg', 'brand/clariro-favicon.svg', 'brand/clariro-og.png', 'brand/clariro-email-logo.png',
 ]);
 export const repositoryFiles = Object.freeze([
   ...publicFiles.map(file => 'site/' + file), '.github/CODEOWNERS', '.github/workflows/public-ci.yml',
-  '.gitignore', 'README.md', 'netlify.toml', 'package.json', 'scripts/verify-public.mjs', 'scripts/site-content.mjs', 'scripts/generate-site.mjs', 'tests/public.test.mjs',
+  '.gitignore', 'README.md', 'netlify.toml', 'package.json', 'scripts/verify-public.mjs', 'scripts/site-content.mjs', 'scripts/calculator-page.mjs', 'scripts/starter-files.mjs', 'scripts/starter-page.mjs', 'tests/calculator-reference.test.mjs', 'scripts/generate-site.mjs', 'tests/public.test.mjs',
   'docs/WEBSITE-BUILD-PLAN.md', 'docs/PAGE-CONTENT-INVENTORY.md', 'docs/CLAIM-TO-CAPABILITY-MATRIX.md',
   'docs/USER-JOURNEY-TESTS.md', 'docs/ADMIN-JOURNEY-TESTS.md', 'docs/WEBSITE-RELEASE-REPORT.md',
   'releases/website-release-manifest.json', 'docs/BRAND-COMPATIBILITY.md',
@@ -33,16 +34,18 @@ export function verifyPublic(root) {
   const actual = filesBelow(root).sort();
   if (JSON.stringify(actual) !== JSON.stringify([...repositoryFiles].sort())) throw Error('Public repository file allowlist mismatch');
   const site = resolve(root, 'site');
-  for (const file of publicFiles.filter(file => !file.endsWith('.xlsx') && !file.endsWith('.png'))) {
+  for (const file of publicFiles.filter(file => !['.xlsx','.png','.pdf','.zip'].some(ext=>file.endsWith(ext)))) {
     const text = readFileSync(resolve(site, file), 'utf8');
     if (/\b(?:sk|rk)_(?:live|test)_[a-zA-Z0-9]{10,}|whsec_[a-zA-Z0-9]{10,}|gh[pousr]_[a-zA-Z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(text)) throw Error('Credential-shaped text found in public asset');
     if (/\/api\/|\/\.netlify\/functions\/|\/owner\b|\/recover\b|\/purchase\b|Quotellum-(?:Customer-Package|Offline-Quote-Kit|Quote-Profit)|service_role|supabase|stripe|resend/i.test(text)) throw Error('Private product, account or commerce reference found in public asset');
   }
+  for(const [path,sha] of Object.entries(approvedStarterSha))if(createHash('sha256').update(readFileSync(resolve(site,path))).digest('hex')!==sha)throw Error('Reviewed Starter Pack checksum mismatch: '+path);
   const app = readFileSync(resolve(site, 'static/app.js'), 'utf8');
   if (/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage|document\.cookie|https?:\/\//.test(app)) throw Error('Free controller must not contact services or retain customer inputs');
+  for(const file of ['static/estimate-core.js','static/calculator-app.js']){const code=readFileSync(resolve(site,file),'utf8');if(/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|document\.cookie|https?:\/\//.test(code))throw Error('Calculator must not contact services or access cookies');}
   const navigation = readFileSync(resolve(site, 'static/navigation.js'), 'utf8');
   if (/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage|document\.cookie|https?:\/\//.test(navigation)) throw Error('Navigation must remain local and not retain inputs');
-  for(const file of publicFiles.filter(file=>file.endsWith('.html'))){
+  for(const file of publicFiles.filter(file=>file.endsWith('.html')&&!file.startsWith('starter/'))){
     const html=readFileSync(resolve(site,file),'utf8');
     if(!html.includes('Quote Kit: not available for purchase')||!html.includes('Consulting platform: in development')||!html.includes('Checkout is closed.')) throw Error('All public pages must state sale restrictions');
     if (/<form[^>]+(?:action|method)=|<script(?!\s+src=)|<style\b|\son\w+\s*=|\sstyle\s*=/i.test(html)) throw Error('Only local scripts and the local calculator form are allowed');
@@ -55,7 +58,7 @@ export function verifyPublic(root) {
     const forms=(html.match(/<form\b/g)||[]).length;
     if(forms!==(file==='free-calculator/index.html'?1:0))throw Error('Unexpected public form');
   }
-  for (const file of publicFiles.filter(f=>f.endsWith('.html')||f.endsWith('.svg')||f.endsWith('.xml')||f==='robots.txt')) { const text=readFileSync(resolve(site,file),'utf8').replaceAll('mailto:quotellum.service@gmail.com',''); if (/quotellum/i.test(text)) throw Error('Legacy active branding in '+file); }
+  for (const file of publicFiles.filter(f=>!f.startsWith('starter/')&&f.endsWith('.html')||f.endsWith('.svg')||f.endsWith('.xml')||f==='robots.txt')) { const text=readFileSync(resolve(site,file),'utf8').replaceAll('mailto:quotellum.service@gmail.com',''); if (/quotellum/i.test(text)) throw Error('Legacy active branding in '+file); }
   const offer=readFileSync(resolve(site,'quote-kit/index.html'),'utf8');
   if(!/<button\s+type="button"\s+disabled>Clariro Quote Kit/.test(offer))throw Error('Purchase control must be disabled');
   const sample = readFileSync(resolve(site, 'Clariro-Calculator.xlsx'));

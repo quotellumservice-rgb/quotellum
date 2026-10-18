@@ -1,0 +1,14 @@
+Compatibility reference sources checked 2026-10-18
+
+Google: Work with Excel files in Drive / Open with Google Sheets
+https://support.google.com/docs/answer/9331167?hl=en-GB
+
+Apple: Import an Excel or text file into Numbers on Mac
+https://support.apple.com/en-lamr/guide/numbers/tan9f3c54bdc/mac
+
+LibreOffice: Using Microsoft Office and LibreOffice
+https://help.libreoffice.org/latest/en-US/text/shared/guide/ms_user.html
+
+These instructions are supported by official documentation, but this actual workbook has not been executed in Google Sheets, Numbers, LibreOffice or OpenOffice. Check the fictional example after import. No untested ODS file is supplied.
+
+Backup scope: Clariro-Offline-Starter.html JSON backups belong only to this offline tool. They are not interchangeable with website-calculator or paid-tool backups. CSV contains input data only, with no formulas or automatic results. Google Docs can display/edit the text guide; Google Sheets is the spreadsheet application.

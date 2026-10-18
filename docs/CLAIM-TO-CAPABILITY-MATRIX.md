@@ -3,7 +3,7 @@
 | Claim | Capability / evidence boundary |
 |---|---|
 | Free USD quote | Existing deterministic browser arithmetic; focused regression tests |
-| No input upload or local project save | Controller has no network, cookie or browser-storage calls; hosting requests still occur |
+| Optional one-record local save; no input upload | Explicit local save/load/delete and validated JSON backup; no controller network or cookies; hosting requests still occur |
 | Free Excel sample | Existing reviewed workbook SHA-256, checked during build |
 | Educational resources | Nine static pages with substantive prompts and examples |
 | Quote Kit $15 once | Intended price only; BLOCKED; no sale, fulfillment or recovery offered |
