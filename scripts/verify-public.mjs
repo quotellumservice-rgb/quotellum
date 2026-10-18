@@ -2,13 +2,18 @@ import { readdirSync, readFileSync, lstatSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { routes,baseUrl } from './site-content.mjs';
 export const publicFiles = Object.freeze([
-  'index.html', 'static/app.js', 'static/quote-core.js', 'static/style.css',
-  'Quotellum-Quick-Quote.xlsx', '_redirects', '_headers', 'robots.txt',
+  ...routes.map(path=>path==='/'?'index.html':path.slice(1)+'/index.html'),
+  '404.html', 'static/app.js', 'static/quote-core.js', 'static/style.css', 'static/navigation.js',
+  'Quotellum-Quick-Quote.xlsx', '_redirects', '_headers', 'robots.txt', 'sitemap.xml',
 ]);
 export const repositoryFiles = Object.freeze([
   ...publicFiles.map(file => 'site/' + file), '.github/CODEOWNERS', '.github/workflows/public-ci.yml',
-  '.gitignore', 'README.md', 'netlify.toml', 'package.json', 'scripts/verify-public.mjs', 'tests/public.test.mjs',
+  '.gitignore', 'README.md', 'netlify.toml', 'package.json', 'scripts/verify-public.mjs', 'scripts/site-content.mjs', 'scripts/generate-site.mjs', 'tests/public.test.mjs',
+  'docs/WEBSITE-BUILD-PLAN.md', 'docs/PAGE-CONTENT-INVENTORY.md', 'docs/CLAIM-TO-CAPABILITY-MATRIX.md',
+  'docs/USER-JOURNEY-TESTS.md', 'docs/ADMIN-JOURNEY-TESTS.md', 'docs/WEBSITE-RELEASE-REPORT.md',
+  'releases/website-release-manifest.json',
 ]);
 const freeSampleSha = 'b7ed84af43266452d33e94e8b5aaed5e2e6bcf8508cf982ada369f7388bc54ec';
 function filesBelow(root, prefix = '') {
@@ -35,9 +40,23 @@ export function verifyPublic(root) {
   }
   const app = readFileSync(resolve(site, 'static/app.js'), 'utf8');
   if (/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage|document\.cookie|https?:\/\//.test(app)) throw Error('Free controller must not contact services or retain customer inputs');
-  const html = readFileSync(resolve(site, 'index.html'), 'utf8');
-  if (!/<button\s+type="button"\s+disabled>Quote Kit/.test(html) || !html.includes('Checkout is closed.')) throw Error('Paid checkout must remain visibly disabled');
-  if (/<form[^>]+(?:action|method)=|<script(?!\s+src=)/i.test(html)) throw Error('Only local scripts and the local calculator form are allowed');
+  const navigation = readFileSync(resolve(site, 'static/navigation.js'), 'utf8');
+  if (/\bfetch\s*\(|XMLHttpRequest|sendBeacon|WebSocket|localStorage|sessionStorage|document\.cookie|https?:\/\//.test(navigation)) throw Error('Navigation must remain local and not retain inputs');
+  for(const file of publicFiles.filter(file=>file.endsWith('.html'))){
+    const html=readFileSync(resolve(site,file),'utf8');
+    if(!html.includes('Quote Kit: not available for purchase')||!html.includes('Consulting platform: in development')||!html.includes('Checkout is closed.')) throw Error('All public pages must state sale restrictions');
+    if (/<form[^>]+(?:action|method)=|<script(?!\s+src=)|<style\b|\son\w+\s*=|\sstyle\s*=/i.test(html)) throw Error('Only local scripts and the local calculator form are allowed');
+    for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+      if(url.startsWith('#')){if(!html.includes('id="'+url.slice(1)+'"'))throw Error('Missing local anchor');continue;}
+      if(url==='mailto:quotellum.service@gmail.com')continue;
+      if(url===baseUrl+(file==='index.html'?'/':file==='404.html'?'/404':'/'+file.replace(/\/index\.html$/,'')))continue;
+      if(!url.startsWith('/')||(!routes.includes(url)&&url!=='/sample'&&!publicFiles.includes(url.slice(1))))throw Error('Unapproved public link or endpoint: '+url);
+    }
+    const forms=(html.match(/<form\b/g)||[]).length;
+    if(forms!==(file==='free-calculator/index.html'?1:0))throw Error('Unexpected public form');
+  }
+  const offer=readFileSync(resolve(site,'quote-kit/index.html'),'utf8');
+  if(!/<button\s+type="button"\s+disabled>Quote Kit/.test(offer))throw Error('Purchase control must be disabled');
   const sample = readFileSync(resolve(site, 'Quotellum-Quick-Quote.xlsx'));
   if (createHash('sha256').update(sample).digest('hex') !== freeSampleSha) throw Error('Only the reviewed free sample may be published');
   const config = readFileSync(resolve(root, 'netlify.toml'), 'utf8');
@@ -45,6 +64,10 @@ export function verifyPublic(root) {
   const packageText = readFileSync(resolve(root, 'package.json'), 'utf8').replace(/^\uFEFF/, '');
   const pkg = JSON.parse(packageText);
   if (Object.keys(pkg.dependencies || {}).length || Object.keys(pkg.devDependencies || {}).length) throw Error('Public site must have no third-party dependencies');
+  const manifest=JSON.parse(readFileSync(resolve(root,'releases/website-release-manifest.json'),'utf8'));
+  if(manifest.liveCheckout!==false||manifest.functions!==false||manifest.quoteKit!=='BLOCKED'||manifest.platform!=='NOT_FOR_SALE')throw Error('Release manifest must preserve closed sales');
+  if(JSON.stringify([...manifest.files.map(file=>file.path)].sort())!==JSON.stringify([...publicFiles].sort()))throw Error('Manifest must match public files exactly');
+  for(const file of manifest.files)if(createHash('sha256').update(readFileSync(resolve(site,file.path))).digest('hex')!==file.sha256)throw Error('Manifest checksum mismatch');
   return { files: actual.length, publicAssets: publicFiles.length, freeSampleSha256: freeSampleSha };
 }
 const entry = process.argv[1];
