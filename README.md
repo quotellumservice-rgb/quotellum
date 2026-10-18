@@ -1,6 +1,6 @@
-# Quotellum public free website
+# Clariro Systems public free website
 
-This repository contains 30 static public routes, nine educational resources, the free Quick Quote calculator and the reviewed free Quick Quote Excel sample. Calculator inputs are processed locally in the browser without accounts, project storage or data submission.
+This repository contains 30 static public routes, nine educational resources, the Clariro Calculator and the reviewed Clariro Calculator Excel sample. Calculator inputs are processed locally in the browser without accounts, project storage or data submission.
 
 The $15 Quote Kit is upcoming and checkout is disabled. Paid workbooks, paid offline tools, customer packages, financial operations and internal infrastructure are intentionally excluded. This repository does not provide a hosted business management service or payment fulfillment.
 
@@ -24,3 +24,6 @@ Review the branch and deployment settings before publishing. A passing check is 
 The sample and site are USD estimates before tax. Quick Quote excludes processing fees, refunds, acquisition and support costs. Inputs and results are planning assumptions, not verified business results.
 
 Support: quotellum.service@gmail.com
+
+
+Current website: https://clariro-systems.netlify.app. Legacy repository owner/name and contact mailbox are compatibility endpoints; see docs/BRAND-COMPATIBILITY.md.

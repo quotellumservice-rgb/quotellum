@@ -8,3 +8,6 @@
 
 /* Printed resources and quotes remain readable without colored backgrounds. */
 @media print{body{background:white;color:#111}.hero,.workspace,.grid,.workflow{display:block}.hero-panel,.result,.card{background:white;color:#111;border:1px solid #aaa;margin:0 0 16px;padding:16px;box-shadow:none}.hero-panel .eyebrow,.hero-panel .workflow li{color:#111;background:white}.workspace input{border:1px solid #999;width:100%}.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}.table-scroll{overflow:visible}table,thead,tr{break-inside:avoid}thead{display:table-header-group}h1{font-size:24pt}h2{font-size:17pt}.workspace .result{break-inside:avoid}p,li{orphans:3;widows:3}}
+
+.brand-mark{vertical-align:middle;flex-shrink:0}.brand{white-space:nowrap}
+@media(max-width:420px){.site-header .brand{font-size:1.05rem}.header-inner{gap:.5rem}}

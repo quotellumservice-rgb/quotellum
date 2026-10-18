@@ -1,9 +1,13 @@
 {
-  "name": "quotellum-public",
+  "name": "clariro-public",
   "version": "1.0.0",
   "private": true,
   "description": "Static Quotellum public pages, educational resources and free calculator; checkout disabled",
-  "engines": { "node": ">=22" },
-  "scripts": { "test": "node scripts/generate-site.mjs && node --test tests/public.test.mjs", "build": "node scripts/generate-site.mjs && node scripts/verify-public.mjs" }
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node scripts/generate-site.mjs && node --test tests/public.test.mjs",
+    "build": "node scripts/generate-site.mjs && node scripts/verify-public.mjs"
+  }
 }
-

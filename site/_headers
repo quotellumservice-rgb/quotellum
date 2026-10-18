@@ -4,6 +4,10 @@
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   X-Frame-Options: DENY
-/Quotellum-Quick-Quote.xlsx
-  Content-Disposition: attachment; filename="Quotellum-Quick-Quote.xlsx"
+/Clariro-Calculator.xlsx
+  Content-Disposition: attachment; filename="Clariro-Calculator.xlsx"
+  Cache-Control: public, max-age=3600
+
+/sample
+  Content-Disposition: attachment; filename="Clariro-Calculator.xlsx"
   Cache-Control: public, max-age=3600
