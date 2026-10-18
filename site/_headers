@@ -7,3 +7,7 @@
 /Clariro-Calculator.xlsx
   Content-Disposition: attachment; filename="Clariro-Calculator.xlsx"
   Cache-Control: public, max-age=3600
+
+/sample
+  Content-Disposition: attachment; filename="Clariro-Calculator.xlsx"
+  Cache-Control: public, max-age=3600
