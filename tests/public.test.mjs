@@ -13,6 +13,7 @@ test('hosting preserves reviewed HTML download links without pretty-URL rewritin
  assert.match(config,/\[build\.processing\.html\]\s*pretty_urls\s*=\s*false/);
  const headers=readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../site/_headers'),'utf8');
  assert.match(headers,/\/starter\/Clariro-Offline-Starter\.html\s+Content-Disposition: attachment; filename="Clariro-Offline-Starter\.html"/);
+ assert.match(headers,/\/starter\/Clariro-Offline-Starter\.html\s+Content-Disposition: attachment; filename="Clariro-Offline-Starter\.html"\s+Content-Type: application\/octet-stream/);
 });
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const context = {};
