@@ -7,6 +7,13 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { verifyPublic, publicFiles,repositoryFiles } from '../scripts/verify-public.mjs';
 import { routes,resources,baseUrl } from '../scripts/site-content.mjs';
+
+test('hosting preserves reviewed HTML download links without pretty-URL rewriting', () => {
+ const config=readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../netlify.toml'),'utf8');
+ assert.match(config,/\[build\.processing\.html\]\s*pretty_urls\s*=\s*false/);
+ const headers=readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../site/_headers'),'utf8');
+ assert.match(headers,/\/starter\/Clariro-Offline-Starter\.html\s+Content-Disposition: attachment; filename="Clariro-Offline-Starter\.html"/);
+});
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const context = {};
 runInNewContext(readFileSync(resolve(root, 'site/static/quote-core.js'), 'utf8'), context);
