@@ -1,5 +1,6 @@
 # Public page content inventory
 
+- `/starter-pack` — Clariro Starter Pack
 - `/` — Pricing tools and resources for consultants
 - `/pricing` — Pricing and availability
 - `/free-calculator` — Clariro Calculator

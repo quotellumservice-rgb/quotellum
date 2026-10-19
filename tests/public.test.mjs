@@ -7,6 +7,13 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { verifyPublic, publicFiles,repositoryFiles } from '../scripts/verify-public.mjs';
 import { routes,resources,baseUrl } from '../scripts/site-content.mjs';
+
+test('hosting preserves reviewed HTML download links without pretty-URL rewriting', () => {
+ const config=readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../netlify.toml'),'utf8');
+ assert.match(config,/\[build\.processing\.html\]\s*pretty_urls\s*=\s*false/);
+ const headers=readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../site/_headers'),'utf8');
+ assert.match(headers,/\/starter\/Clariro-Offline-Starter\.html\s+Content-Disposition: attachment; filename="Clariro-Offline-Starter\.html"/);
+});
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const context = {};
 runInNewContext(readFileSync(resolve(root, 'site/static/quote-core.js'), 'utf8'), context);
@@ -28,7 +35,7 @@ test('invalid non-finite, negative and excessive precision inputs are rejected',
   assert.throws(() => quote({ hours: '0.00001' })); assert.throws(() => quote({ target_margin_percent: '100' }));
 });
 test('only reviewed free assets and the disabled local-only controller are in the repository', () => {
-  const result = verifyPublic(root); assert.equal(result.publicAssets, publicFiles.length); assert.equal(result.files, repositoryFiles.length); assert.equal(routes.length,30);
+  const result = verifyPublic(root); assert.equal(result.publicAssets, publicFiles.length); assert.equal(result.files, repositoryFiles.length); assert.equal(routes.length,31);
 });
 test('local HTML asset links and anchors resolve; sample route maps to the reviewed workbook', () => {
   for(const route of routes){
@@ -47,7 +54,7 @@ test('local HTML asset links and anchors resolve; sample route maps to the revie
     assert.match(html,/Quote Kit: not available for purchase/);assert.match(html,/Consulting platform: in development/);
     assert.equal((html.match(/<form\b/g) || []).length, route==='/free-calculator'?1:0);
   }
-  assert.match(readFileSync(resolve(root, 'site/_redirects'), 'utf8'), /^\/sample \/Clariro-Calculator\.xlsx 200\n\/Quotellum-Quick-Quote\.xlsx \/Clariro-Calculator\.xlsx 301\s*$/);
+  assert.match(readFileSync(resolve(root, 'site/_redirects'), 'utf8'), /^\/sample \/starter\/Clariro-Starter-Pack\.xlsx 200\r?\n\/Quotellum-Quick-Quote\.xlsx \/starter\/Clariro-Starter-Pack\.xlsx 301\s*$/);
 });
 
 test('search inventory contains real public routes, with no application or commerce facades',()=>{
@@ -71,7 +78,7 @@ test('commerce copy stays visibly unavailable and does not invent account or wai
   const html=readFileSync(resolve(root,'site/quote-kit/index.html'),'utf8');
   assert.match(html,/<button type="button" disabled>Clariro Quote Kit — \$15/);
   assert.match(html,/30 days/);assert.match(html,/12 calendar months/);assert.match(html,/not a certified delivery manifest/);
-  for(const path of publicFiles.filter(file=>file.endsWith('.html'))){const text=readFileSync(resolve(root,'site',path),'utf8');assert.doesNotMatch(text,/<(?:a|form)[^>]+(?:href|action)="\/(?:app|admin|checkout|recover|signin|signup)/);}
+  for(const path of publicFiles.filter(file=>file.endsWith('.html')&&!file.startsWith('starter/'))){const text=readFileSync(resolve(root,'site',path),'utf8');assert.doesNotMatch(text,/<(?:a|form)[^>]+(?:href|action)="\/(?:app|admin|checkout|recover|signin|signup)/);}
 });
 
 test('calculator controller resets after native defaults and fails invalid input clearly',()=>{

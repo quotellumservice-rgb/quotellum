@@ -1,0 +1,12 @@
+field,value,meaning
+job_name,,Your own non-sensitive label
+hours,,Required; enter 0 for none
+hourly_cost,,Required; USD per hour
+direct_costs,,Required; USD; enter 0 for none
+allocated_business_costs,0,Optional USD
+planned_price,,Required pre-tax USD
+target_margin_percent,30,Editable percent; not markup
+processing_fee_percent,0,Optional percent; 0 means excluded
+fixed_fee,0,Optional USD
+reserve_percent,0,Planning allowance not tax due
+NOTE,,Input data only; this CSV has no formulas or automatic results

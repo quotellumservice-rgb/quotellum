@@ -9,5 +9,12 @@
   Cache-Control: public, max-age=3600
 
 /sample
-  Content-Disposition: attachment; filename="Clariro-Calculator.xlsx"
+  Content-Disposition: attachment; filename="Clariro-Starter-Pack.xlsx"
   Cache-Control: public, max-age=3600
+
+/starter/Clariro-Starter-Pack.xlsx
+  Content-Disposition: attachment; filename="Clariro-Starter-Pack.xlsx"
+/starter/Clariro-Starter-Pack-1.0.zip
+  Content-Disposition: attachment; filename="Clariro-Starter-Pack-1.0.zip"
+/starter/Clariro-Offline-Starter.html
+  Content-Disposition: attachment; filename="Clariro-Offline-Starter.html"

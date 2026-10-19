@@ -3,6 +3,7 @@
   "reviewedOn": "2026-10-18",
   "scope": "STATIC_PUBLIC_FREE_ONLY",
   "routes": [
+    "/starter-pack",
     "/",
     "/pricing",
     "/free-calculator",
@@ -44,8 +45,12 @@
   "deployment": null,
   "files": [
     {
+      "path": "starter-pack/index.html",
+      "sha256": "e5e6e1e02656574598296b26ecafdebad35e315cebd1c51fc214f032271b4150"
+    },
+    {
       "path": "index.html",
-      "sha256": "fdb75a46a016f371d2cc746421ccaa9094708054f9bc434d2547c787bd48311c"
+      "sha256": "ac03d65c06620b0b359f555cbcf19ddd66dc90587fbf8afbe3285a3c31afd41b"
     },
     {
       "path": "pricing/index.html",
@@ -53,7 +58,7 @@
     },
     {
       "path": "free-calculator/index.html",
-      "sha256": "0db0c1119f162fd04efc72cad95c2cfa7ebb8b43fb40324ce567d717ad0c2ff6"
+      "sha256": "a5d9e72de2ea09bb37a354f79b3e7d343e6a2d484e92e741bc02266c12b84324"
     },
     {
       "path": "quote-kit/index.html",
@@ -93,7 +98,7 @@
     },
     {
       "path": "about/index.html",
-      "sha256": "a600cc17c6037dd0d308b2b29469de94f67cf1b4a9f30df18cc30b1e44fafaba"
+      "sha256": "f7acd9c52961d398023d5923c24008f8610a5803b3f5d9f1cad1a2c1e6b72299"
     },
     {
       "path": "support/index.html",
@@ -101,15 +106,15 @@
     },
     {
       "path": "faq/index.html",
-      "sha256": "b8038648c5f2924269b673efca0b0f460760180b3660f1a9d17e4904ad3e8d39"
+      "sha256": "f3aa485eaf53bbca35b98d52b97af303b0ecbf4170d8e91358c0d79a3417b3b1"
     },
     {
       "path": "privacy/index.html",
-      "sha256": "3d2214d1524379b361f463491c854fe716f0cff396cda9585b1f37c113331639"
+      "sha256": "ef4ff9db6c99540aca7bf5997fabe5594040bf5e85d9639ad4c37d342b02ee65"
     },
     {
       "path": "terms/index.html",
-      "sha256": "e7b31b2d91b449380ab9354c3c97ca9cf76cf5320345bb1849d21f4ff4af5001"
+      "sha256": "aa1bda55066425acae5825fd6f9753fdded3cddb6a363f11c9f939fd780c0a5a"
     },
     {
       "path": "refund-policy/index.html",
@@ -125,11 +130,11 @@
     },
     {
       "path": "status/index.html",
-      "sha256": "bdbcfc50ca5dd88d0d52fd3b6e09e1ad34264d7d0ab9d1553ffa1f068dbeb493"
+      "sha256": "05d76d044cb10bfd22a465afb0d5e119f91f908c6ee428593b972597dabf0162"
     },
     {
       "path": "resources/guides/pricing/index.html",
-      "sha256": "c6da33279145ed8cac6b9127d9cbb935c1052d6d23ec685734a2da3c2d407445"
+      "sha256": "8fb1566c266f1e1cdeb428a165effcff9f3e5ed4634e62b545541d027f1344ea"
     },
     {
       "path": "resources/guides/project-profitability/index.html",
@@ -169,7 +174,7 @@
     },
     {
       "path": "static/style.css",
-      "sha256": "3877f12e1c4c4b8d8eb709369631953e849249736236f88cb61e50250ea3cff9"
+      "sha256": "c1f005dbe743c209ea55725c03e62c237f357e3587c5c66de456e82a64716cac"
     },
     {
       "path": "static/navigation.js",
@@ -184,8 +189,16 @@
       "sha256": "c6dfb49fbd8d9c570a1c6086d799911949b2784cdd6d71b583e6dcf0ef0861ea"
     },
     {
+      "path": "static/estimate-core.js",
+      "sha256": "0732f55831db19c47f0bbb85ad89fa788b67e078a9378295bbf25c200c441fd2"
+    },
+    {
+      "path": "static/calculator-app.js",
+      "sha256": "12db8f812c20809640f78651439a7cb1225510b30aa4c854507cbeac31824a4b"
+    },
+    {
       "path": "sitemap.xml",
-      "sha256": "5ee5aebe446e83212d8e482cfee8b4c55010638db0152bcd7e89fee61da16252"
+      "sha256": "27d659083f9b9c081cb8bfa29b4ae89b9b981f813cc15ce3fc1151bf267ba021"
     },
     {
       "path": "robots.txt",
@@ -193,11 +206,11 @@
     },
     {
       "path": "_headers",
-      "sha256": "ae16cfa580f22d6e3aceef230a2e6f4d8a40bfe0a16c754d4105b26e1d3ffc3a"
+      "sha256": "58cb62028c55d752437fdbe63babaff2c000419363a26ed3f6386cf63ed79f19"
     },
     {
       "path": "_redirects",
-      "sha256": "0ddef333611247718fe89f78940c0b9da8532ad5061727313e9580fb21664f43"
+      "sha256": "0256005ac03f31ad39468c2facc346e27b7fc529ae4194e6178d25190d6778be"
     },
     {
       "path": "Clariro-Calculator.xlsx",
@@ -222,6 +235,54 @@
     {
       "path": "brand/clariro-email-logo.png",
       "sha256": "248258f9a9c2d1d775f57e4e8008e6d702d53a13f36eff2b87eadc6167b91785"
+    },
+    {
+      "path": "starter/Clariro-Starter-Pack-1.0.zip",
+      "sha256": "75b87bb5e0f64b350867d07d380362136a66eb7eafa95a15fc6cf804beaadc6e"
+    },
+    {
+      "path": "starter/Clariro-Starter-Pack.xlsx",
+      "sha256": "4bd34ad50c5d14ec994e8909cd147b7d20f3f1ca5288f2125506701087c63a64"
+    },
+    {
+      "path": "starter/Clariro-Offline-Starter.html",
+      "sha256": "75f0dd9d426eb69e9bd2b302c883adaee46457560376ea10ad41f4417c1509d7"
+    },
+    {
+      "path": "starter/Clariro-Quick-Start.html",
+      "sha256": "c3bc53edc1ec6af956e1b194b0c753ae182fb4f9ff4511c1df3c5e8baeb30671"
+    },
+    {
+      "path": "starter/Clariro-Quick-Start.txt",
+      "sha256": "537083585d38237e4a1c9d21a6f214cb662f76fb3c0ffcdccdd17f58e838688a"
+    },
+    {
+      "path": "starter/Clariro-Job-Inputs.csv",
+      "sha256": "a8ed6289fbd783158ddf96f19a66244cdc825df630737d1a557bd531487fcf3a"
+    },
+    {
+      "path": "starter/Clariro-Quick-Start.pdf",
+      "sha256": "bbfe79104d6a366538f520f7917e01d2efded21f3140536847520f063e2f6e35"
+    },
+    {
+      "path": "starter/README.txt",
+      "sha256": "260e28076877269a30d00a550e76573de4dfaae83695a7286048db59e6662afe"
+    },
+    {
+      "path": "starter/Compatibility-Sources.txt",
+      "sha256": "f2a869b0244584042c73fad3571a5f038d1d82eeee36a2e70ec2e412b8e790a2"
+    },
+    {
+      "path": "starter/manifest.json",
+      "sha256": "592fffc1d5e7c52a9a4c1a1353c0653b109f20b3b10e7cb10932b093ed4a8521"
+    },
+    {
+      "path": "starter/Clariro-Guide-Web.html",
+      "sha256": "d987dfa33408b40537ee62bccb1311fa970de9794e1ca25e4dd38236b09ba42d"
+    },
+    {
+      "path": "starter/quick-start.css",
+      "sha256": "efc24acae858dfdb85bed1ab90edc35e62a49fdc68514c2d0a544e1a10aef477"
     }
   ]
 }

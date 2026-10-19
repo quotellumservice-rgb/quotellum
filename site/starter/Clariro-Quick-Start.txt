@@ -1,0 +1,90 @@
+CLARIRO SYSTEMS — FREE STARTER PACK 1.0.0
+Clear work. Better outcomes.
+USD estimates. One job. No account or card required.
+
+QUICK START
+1. Open Your job. Name the job and enter hours, hourly cost, direct costs and planned price. Enter 0 for none. Review optional costs and your goal.
+
+READ YOUR RESULT
+2. Review the remaining amount and warning. The full calculation trail is below the inputs. Compare the three scenarios before sending your quote.
+
+KEEP YOUR WORK
+3. Save a local working copy. This is a one-job template, not a multi-project tracker. Keep your original and backups.
+
+FICTIONAL EXAMPLE
+Worked example: 4 hours at $25, $100 materials and $20 allocated business costs total $220. At a $350 planned price, $130 remains: 37.1%. A 30% goal suggests a $314.29 minimum before omitted obligations.
+
+SCENARIO LIMITS
+Three lightweight alternatives are included. Current plan links to Your job; the other two start linked to it. Edit their amber cells to try changed assumptions. Overwriting a formula removes that link; restore it from a clean copy.
+
+FORMULA: LABOR
+Total modeled hours = job hours + travel/meetings/admin hours + contingency hours. Labor cost = total modeled hours × hourly cost, rounded to cents.
+
+FORMULA: PRICE AND COSTS
+Customer price = planned price × (1 − discount), rounded to cents. Delivery cost = labor + materials + helpers + travel + other + allocated business costs.
+
+FORMULA: REMAINING
+Total estimated costs = delivery cost + percentage processing fee + fixed processing fee + planning reserve. Each percentage allowance is rounded independently to cents. Remaining = customer price − total estimated costs.
+
+FORMULA: GOALS
+Margin = remaining ÷ customer price. Break-even = (delivery costs + fixed fee) ÷ (1 − fee rate − reserve rate). Goal price = same numerator ÷ (1 − goal margin − fee rate − reserve rate), rounded up to cents. Actual displayed margin can differ slightly because fees round independently.
+
+FORMULA: HOURLY RESULT
+Remaining per modeled hour = remaining ÷ total modeled hours. Your labor cost has already been deducted. This is not a wage or a cash-flow forecast. Zero hours or zero price produces n.a. for the corresponding ratio.
+
+MISSING VERSUS ZERO
+Required fields left blank produce unavailable results. 0 is a valid explicit assumption. Negative inputs, unsupported text, discount ≥100%, or goal + fee + reserve ≥100% are invalid. Do not bypass validation.
+
+CHECKLIST: SCOPE
+Write scope, deliverables, exclusions and revision limits. Include meetings, travel, administration and expected rework.
+
+CHECKLIST: COMMERCIAL TERMS
+Confirm costs and fees; agree payment timing, deposit/milestones, acceptance and change requests. Confirm tax obligations separately before sending a quote.
+
+GLOSSARY: REMAINING AMOUNT
+Estimated money left after only the modeled costs and allowances. It is not verified profit, tax advice or guaranteed earnings.
+
+GLOSSARY: MARGIN / MARKUP
+Margin divides remaining amount by selling price. Markup divides the uplift by cost. $100 cost plus 30% markup gives $130, not a 30% margin.
+
+GLOSSARY: BUSINESS COSTS
+A fair share of operating costs assigned to this job. Do not also include the same costs in hourly cost or another expense.
+
+GLOSSARY: BREAK-EVEN
+The modeled customer price at which remaining is approximately zero. Omitted costs can make the real break-even higher.
+
+FREE TOOLS
+One job; blank template; one complete fictional example; three lightweight scenarios; a local working copy; checklist, glossary and portable guide. No result is hidden behind payment.
+
+INTENDED QUOTE KIT
+Proposed $15 USD once, plus applicable tax. NOT FOR SALE. Candidate workbook includes a reusable 100-row extendable tracker, planned-versus-actual contribution, three fictional examples, guide/license and offline project records.
+
+INTENDED PAID SUPPORT
+Candidate terms: single-business version 1 files; 30 days setup/file support and 12 calendar months purchase recovery. Terms, certification and hosted delivery must pass before sale. No guaranteed future updates.
+
+NOT INCLUDED IN THE $15 OFFER
+Team access, cloud sync, integrations, recurring automation, unlimited project cloud history, industry packs and separate advanced scenario/cash/capacity dashboards are not certified parts of version 1. Do not assume every roadmap idea is included.
+
+EXCEL
+Use the .xlsx workbook in desktop Microsoft Excel. Excel is not included. Current native test coverage is documented separately; no exhaustive compatibility or print certification is claimed.
+
+GOOGLE SHEETS
+Upload Clariro-Starter-Pack.xlsx to Google Drive. Choose Open with Google Sheets. Save as Google Sheets if desired. Check inputs, formulas and the $350 / $220 / $130 example after conversion. Import is instructed, not platform-tested here.
+
+APPLE NUMBERS
+Open the .xlsx in Numbers. Review any import warnings, formulas and formatting, then verify the worked example before use. Native Numbers execution is not certified here.
+
+LIBREOFFICE / OPENOFFICE
+Open the .xlsx in Calc. Check the worked example and all warnings before relying on it. Native Calc/OpenOffice execution is not certified here. No untested .ods file is supplied.
+
+CSV AND GOOGLE DOCS
+CSV is an input starter with no formulas, formatting or automatic results. Google Docs can display/edit the text guide; it is not the spreadsheet calculator. Use Excel/Sheets/Numbers/Calc for .xlsx.
+
+OFFLINE BROWSER TOOL
+Open Clariro-Offline-Starter.html. Calculation works without a service. Save one current job locally where supported, export JSON and test restore. Local-file storage varies; a private JSON backup is more portable.
+
+PRIVACY AND USE
+No account or credit card is needed. Offline records stay on your device unless you share a backup. Keep backup files private; they are not encrypted. Educational estimates do not determine legal, tax, accounting or professional obligations.
+
+VERSION AND CHANGELOG
+Starter Pack 1.0.0, 2026-10-18: expanded complete one-job calculator, fictional example, three alternatives, portable guide and honest import notes. This does not replace or modify previous paid files.

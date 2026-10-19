@@ -2,7 +2,7 @@
 
 State: LOCAL_BUILD_IN_PROGRESS pending independent test execution and review.
 
-30 static public routes plus a 404, accessible shared navigation, footer policies, a free calculator with reset, nine educational resources, metadata, sitemap and robots. Exact public file and repository allowlists remain enforced. No functions, dependencies or paid files added.
+31 static public routes plus a 404, accessible shared navigation, footer policies, a free calculator with reset, nine educational resources, metadata, sitemap and robots. Exact public file and repository allowlists remain enforced. No functions, dependencies or paid files added.
 
 Public calculator and workbook arithmetic are existing reviewed assets. Quote Kit: not available for purchase. Consulting platform: in development. Checkout, hosted fulfillment and recovery remain unavailable. No live-payment change.
 

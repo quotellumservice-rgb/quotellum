@@ -3,3 +3,7 @@
   publish = "site"
 [build.environment]
   NODE_VERSION = "22"
+
+# Preserve reviewed HTML links and downloadable HTML filenames byte-for-byte.
+[build.processing.html]
+  pretty_urls = false
