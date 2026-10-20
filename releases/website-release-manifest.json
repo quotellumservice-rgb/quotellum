@@ -58,7 +58,7 @@
     },
     {
       "path": "free-calculator/index.html",
-      "sha256": "a5d9e72de2ea09bb37a354f79b3e7d343e6a2d484e92e741bc02266c12b84324"
+      "sha256": "4b8e50f033b7ae53c15295140b7e4e832dd38a4690ab25b03381a428e5dd9886"
     },
     {
       "path": "quote-kit/index.html",
@@ -194,7 +194,7 @@
     },
     {
       "path": "static/calculator-app.js",
-      "sha256": "12db8f812c20809640f78651439a7cb1225510b30aa4c854507cbeac31824a4b"
+      "sha256": "8067217e19f5b3d8db3178a4aedcc288ab09275289ee5349985a24fa6769df77"
     },
     {
       "path": "sitemap.xml",
